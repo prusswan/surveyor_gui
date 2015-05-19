@@ -9,6 +9,8 @@ module SurveyorGui
     config.autoload_paths << root
 
     config.to_prepare do
+      c = Dir.glob(File.expand_path('../',root)+'/app/models/permitted_params_decorator.rb').first
+      require_dependency(c)
       Dir.glob(root + "/surveyor_gui/models/*.rb").each do |c|
         require_dependency(c)
       end
