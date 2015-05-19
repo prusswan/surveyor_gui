@@ -79,7 +79,7 @@ module SurveyorGui
       def dynamically_generate
         'false'
       end
-      
+
       def question_type_id
         QuestionType.categorize_question(self)
       end
@@ -144,7 +144,7 @@ module SurveyorGui
         when 'time'
           prep_not_picks('time')
         when 'datetime'
-          prep_not_picks('datetime')          
+          prep_not_picks('datetime')
         when 'file'
           prep_not_picks('blob')
         when 'string'
@@ -283,7 +283,7 @@ module SurveyorGui
       def answers_textbox
         self.answers.where('is_exclusive != ? and is_comment != ? and response_class != ?',true,true,"string").order('display_order asc').collect(&:text).join("\n")
       end
-      
+
       def answers_textbox=(textbox)
         #change updated_at as a hack to force dirty record for change on answers_textbox
         write_attribute(:updated_at, Time.now)
@@ -423,7 +423,7 @@ module SurveyorGui
       def _preceding_questions
         ##all questions from previous sections, plus all questions with a lower display order than this one
         Question.joins(:survey_section).where(
-            '(survey_id = ? and survey_sections.display_order < ?) or (survey_section_id = ? and questions.display_order <= ?)',
+            '(survey_sections.survey_id = ? and survey_sections.display_order < ?) or (survey_section_id = ? and questions.display_order <= ?)',
             survey_section.survey_id,
             survey_section.display_order,
             survey_section.id,
