@@ -51,7 +51,7 @@ module SurveyorGui
 
       def _build_stars(question, args)
       end
-      
+
       def _build_dropdown(question, args)
         _process_answers_textbox(question, args)
       end
@@ -329,8 +329,8 @@ module SurveyorGui
           [:label,          "Label"                                           , true,  :none, :label,    :inline,  :all],
           [:file,           "File Upload"                                     , true,  :none, "default", :inline,  :blob],
           [:string,         "Text"                                            , true,  :none, :default,  :grid,    :all],
-          
-          
+
+
           [:pick_one,       "Multiple Choice (only one answer)"               , true,   :one,  "default",:default,  :all],
           [:pick_any,       "Multiple Choice (multiple answers)"              , true,   :any,  "default",:default,  :all],
           [:box,            "Text Box (for extended text, like notes, etc.)"  , true,  :none, "default", :default,  :text],
@@ -345,7 +345,7 @@ module SurveyorGui
           [:stars,          "1-5 Stars"                                       , true,  :one,  :stars,    :default,  :all],
           [:label,          "Label"                                           , true,  :none, :label,    :default,  :all],
           [:file,           "File Upload"                                     , true,  :none, "default", :default,  :blob],
-          
+
           [:pick_one,       "Multiple Choice (only one answer)"               , true,   :one,  "default",:repeater,  :all],
           [:pick_any,       "Multiple Choice (multiple answers)"              , true,   :any,  "default",:repeater,  :all],
           [:box,            "Text Box (for extended text, like notes, etc.)"  , true,  :none, "default", :repeater,  :text],
@@ -360,14 +360,15 @@ module SurveyorGui
           [:stars,          "1-5 Stars"                                       , true,  :one,  :stars,    :repeater,  :all],
           [:label,          "Label"                                           , true,  :none, :label,    :repeater,  :all],
           [:file,           "File Upload"                                     , true,  :none, "default", :repeater,  :blob],
-          
+
           [:string,         "Text"                                            , true,  :none, :default,  :grid,    :all],
           #surveyor seems to have an inline option that doesn't actually render inline yet.  Recognize it
           #but don't treat it differently.  See question 16 and 17 in kitchen_sink_survey.rb.
           [:pick_one,       "Multiple Choice (only one answer)"               , true,  :one,  "inline",  nil,      :answer],
           [:pick_any,       "Multiple Choice (multiple answers)"              , true,  :any,  "inline",  nil,      :answer],
           [:pick_one,       "Multiple Choice (only one answer)"               , false, :one,  "inline",  nil,      :answer],
-          [:pick_any,       "Multiple Choice (multiple answers)"              , false, :any,  "inline",  nil,      :answer]
+          [:pick_any,       "Multiple Choice (multiple answers)"              , false, :any,  "inline",  nil,      :answer],
+          [:pick_any,       "Freeform or custom"                              , false, :none, "default", nil,      :answer]
        ]
 
 
